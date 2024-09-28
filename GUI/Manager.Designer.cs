@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fManager));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tooltxtInfor = new System.Windows.Forms.ToolStripTextBox();
@@ -44,13 +45,13 @@
             this.LogOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.khoHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cbDrinkName = new System.Windows.Forms.ComboBox();
-            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.cbTables = new System.Windows.Forms.ComboBox();
             this.numCount = new System.Windows.Forms.NumericUpDown();
             this.btnAddDrink = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.Panel5 = new System.Windows.Forms.Panel();
-            this.cbTables = new System.Windows.Forms.ComboBox();
             this.btnMerge = new System.Windows.Forms.Button();
             this.btnSwitch = new System.Windows.Forms.Button();
             this.btnTableregister = new System.Windows.Forms.Button();
@@ -69,6 +70,22 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.flpDrink = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.il4 = new System.Windows.Forms.ImageList(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.il5 = new System.Windows.Forms.ImageList(this.components);
+            this.il7 = new System.Windows.Forms.ImageList(this.components);
+            this.il10 = new System.Windows.Forms.ImageList(this.components);
+            this.il11 = new System.Windows.Forms.ImageList(this.components);
+            this.il12 = new System.Windows.Forms.ImageList(this.components);
+            this.il13 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.txtClient = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCount)).BeginInit();
@@ -77,6 +94,9 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).BeginInit();
             this.panel4.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -192,7 +212,7 @@
             // 
             // tàiKhoảnToolStripMenuItem
             // 
-            this.tàiKhoảnToolStripMenuItem.Image = global::GUI.Properties.Resources.person;
+            this.tàiKhoảnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tàiKhoảnToolStripMenuItem.Image")));
             this.tàiKhoảnToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
             this.tàiKhoảnToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
@@ -232,39 +252,29 @@
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel2.Controls.Add(this.cbDrinkName);
-            this.panel2.Controls.Add(this.cbCategory);
+            this.panel2.Controls.Add(this.txtClient);
             this.panel2.Controls.Add(this.numCount);
             this.panel2.Controls.Add(this.btnAddDrink);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(481, 37);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(573, 106);
             this.panel2.TabIndex = 2;
             // 
-            // cbDrinkName
+            // cbTables
             // 
-            this.cbDrinkName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDrinkName.FormattingEnabled = true;
-            this.cbDrinkName.Location = new System.Drawing.Point(3, 59);
-            this.cbDrinkName.Name = "cbDrinkName";
-            this.cbDrinkName.Size = new System.Drawing.Size(258, 39);
-            this.cbDrinkName.TabIndex = 9;
-            // 
-            // cbCategory
-            // 
-            this.cbCategory.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(3, 3);
-            this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(258, 39);
-            this.cbCategory.TabIndex = 9;
-            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
+            this.cbTables.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTables.FormattingEnabled = true;
+            this.cbTables.Location = new System.Drawing.Point(24, 166);
+            this.cbTables.Name = "cbTables";
+            this.cbTables.Size = new System.Drawing.Size(121, 39);
+            this.cbTables.TabIndex = 8;
             // 
             // numCount
             // 
             this.numCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numCount.Location = new System.Drawing.Point(447, 50);
+            this.numCount.Location = new System.Drawing.Point(457, 50);
             this.numCount.Minimum = new decimal(new int[] {
             100,
             0,
@@ -276,6 +286,7 @@
             // 
             // btnAddDrink
             // 
+            this.btnAddDrink.AutoEllipsis = true;
             this.btnAddDrink.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnAddDrink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddDrink.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
@@ -283,13 +294,23 @@
             this.btnAddDrink.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddDrink.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddDrink.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddDrink.Location = new System.Drawing.Point(289, 10);
+            this.btnAddDrink.Location = new System.Drawing.Point(284, 10);
             this.btnAddDrink.Name = "btnAddDrink";
             this.btnAddDrink.Size = new System.Drawing.Size(130, 74);
             this.btnAddDrink.TabIndex = 7;
             this.btnAddDrink.Text = "Thêm/Bớt món";
             this.btnAddDrink.UseVisualStyleBackColor = false;
             this.btnAddDrink.Click += new System.EventHandler(this.btnAddDrink_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(42, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(181, 31);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Tên khách hàng";
             // 
             // label3
             // 
@@ -300,6 +321,17 @@
             this.label3.Size = new System.Drawing.Size(111, 31);
             this.label3.TabIndex = 3;
             this.label3.Text = "Số lượng";
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.BackColor = System.Drawing.Color.MintCream;
+            this.cbCategory.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(91, 84);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(258, 39);
+            this.cbCategory.TabIndex = 9;
+            this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
             // Panel5
             // 
@@ -314,15 +346,6 @@
             this.Panel5.Size = new System.Drawing.Size(188, 539);
             this.Panel5.TabIndex = 4;
             // 
-            // cbTables
-            // 
-            this.cbTables.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTables.FormattingEnabled = true;
-            this.cbTables.Location = new System.Drawing.Point(26, 178);
-            this.cbTables.Name = "cbTables";
-            this.cbTables.Size = new System.Drawing.Size(121, 39);
-            this.cbTables.TabIndex = 8;
-            // 
             // btnMerge
             // 
             this.btnMerge.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -332,7 +355,7 @@
             this.btnMerge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMerge.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMerge.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMerge.Location = new System.Drawing.Point(0, 248);
+            this.btnMerge.Location = new System.Drawing.Point(0, 241);
             this.btnMerge.Name = "btnMerge";
             this.btnMerge.Size = new System.Drawing.Size(164, 72);
             this.btnMerge.TabIndex = 7;
@@ -349,7 +372,7 @@
             this.btnSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSwitch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSwitch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSwitch.Location = new System.Drawing.Point(0, 360);
+            this.btnSwitch.Location = new System.Drawing.Point(0, 355);
             this.btnSwitch.Name = "btnSwitch";
             this.btnSwitch.Size = new System.Drawing.Size(164, 72);
             this.btnSwitch.TabIndex = 7;
@@ -366,7 +389,7 @@
             this.btnTableregister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTableregister.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTableregister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTableregister.Location = new System.Drawing.Point(0, 470);
+            this.btnTableregister.Location = new System.Drawing.Point(0, 469);
             this.btnTableregister.Name = "btnTableregister";
             this.btnTableregister.Size = new System.Drawing.Size(164, 72);
             this.btnTableregister.TabIndex = 7;
@@ -388,10 +411,10 @@
             // 
             this.flpTables.AutoScroll = true;
             this.flpTables.BackColor = System.Drawing.Color.Transparent;
-            this.flpTables.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flpTables.Location = new System.Drawing.Point(0, 38);
+            this.flpTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpTables.Location = new System.Drawing.Point(3, 3);
             this.flpTables.Name = "flpTables";
-            this.flpTables.Size = new System.Drawing.Size(466, 652);
+            this.flpTables.Size = new System.Drawing.Size(461, 605);
             this.flpTables.TabIndex = 5;
             // 
             // panel3
@@ -524,6 +547,172 @@
             this.panel4.Size = new System.Drawing.Size(556, 432);
             this.panel4.TabIndex = 7;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(0, 38);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(475, 652);
+            this.tabControl1.TabIndex = 8;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.Controls.Add(this.flpTables);
+            this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage1.Location = new System.Drawing.Point(4, 37);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(467, 611);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Sơ đồ bàn";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.cbCategory);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.flpDrink);
+            this.tabPage2.Location = new System.Drawing.Point(4, 37);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(467, 611);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Order";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // flpDrink
+            // 
+            this.flpDrink.AutoScroll = true;
+            this.flpDrink.BackColor = System.Drawing.Color.Lavender;
+            this.flpDrink.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flpDrink.Location = new System.Drawing.Point(3, 160);
+            this.flpDrink.Name = "flpDrink";
+            this.flpDrink.Size = new System.Drawing.Size(461, 448);
+            this.flpDrink.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.BurlyWood;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(116, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(210, 31);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Danh mục món ăn";
+            // 
+            // il4
+            // 
+            this.il4.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("il4.ImageStream")));
+            this.il4.TransparentColor = System.Drawing.Color.Transparent;
+            this.il4.Images.SetKeyName(0, "camep_OCMA4.jpg");
+            this.il4.Images.SetKeyName(1, "nuoc-ep-cam-dua-thom-ngon-tai-nha4.jpg");
+            this.il4.Images.SetKeyName(2, "nuoc-ep-cam-ca-rot-4.jpg");
+            this.il4.Images.SetKeyName(3, "cong-thuc-pha-nuoc-chanh-vua-dep-vua-ngon-nhin-chang-no-uong-4.jpg");
+            this.il4.Images.SetKeyName(4, "nuoc-ep-dua-hau-giai-nhiet4.jpg");
+            this.il4.Images.SetKeyName(5, "co-the-se-nhan-duoc-nhung-loi-ich-vang-khi-su-dung-chanh-leo-vao-mua-he-4.jpg");
+            this.il4.Images.SetKeyName(6, "thanh-pham-4.jpg");
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // il5
+            // 
+            this.il5.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("il5.ImageStream")));
+            this.il5.TransparentColor = System.Drawing.Color.Transparent;
+            this.il5.Images.SetKeyName(0, "cach-lam-tra-sua-thai-xanh5.jpg");
+            this.il5.Images.SetKeyName(1, "unnamed5.jpg");
+            this.il5.Images.SetKeyName(2, "ts-matcha-kem-trung-khe5.png");
+            this.il5.Images.SetKeyName(3, "CHOCOLATE5.jpg");
+            this.il5.Images.SetKeyName(4, "word-image-5.jpg");
+            // 
+            // il7
+            // 
+            this.il7.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("il7.ImageStream")));
+            this.il7.TransparentColor = System.Drawing.Color.Transparent;
+            this.il7.Images.SetKeyName(0, "tra-oi-hong-dau-tay7.jpg");
+            this.il7.Images.SetKeyName(1, "tra-la-nep-sen-vang-7.png");
+            this.il7.Images.SetKeyName(2, "ab7a.jpg");
+            this.il7.Images.SetKeyName(3, "cach-lam-tra-cam-que-7.jpg");
+            this.il7.Images.SetKeyName(4, "cach-lam-tra-vai-thom-ngon-giai-nhiet-mua-he7.jpg");
+            this.il7.Images.SetKeyName(5, "DSC7.jpg");
+            this.il7.Images.SetKeyName(6, "cach-lam-tra-dao-cam-sa-giai-nhiet-hieu-qua-ngay-tai-nha7.jpg");
+            this.il7.Images.SetKeyName(7, "Tra-mat-ong-hoa-cuc-7.jpg");
+            // 
+            // il10
+            // 
+            this.il10.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("il10.ImageStream")));
+            this.il10.TransparentColor = System.Drawing.Color.Transparent;
+            this.il10.Images.SetKeyName(0, "ca-phe-den-10.jpg");
+            this.il10.Images.SetKeyName(1, "cach-pha-ca-phe-sua-chuan-cong-thuc-tai-nha-ngon-hon-hang-quan-10.jpg");
+            this.il10.Images.SetKeyName(2, "bac-xiu-da_10.jpg");
+            this.il10.Images.SetKeyName(3, "cacao-xay10.png");
+            this.il10.Images.SetKeyName(4, "ca-phe-kem-muoi10.jpg");
+            this.il10.Images.SetKeyName(5, "cach-lam-ca-phe-trung-ha-noi-la-mieng-thom-ngon-kho-cuong-10.jpg");
+            this.il10.Images.SetKeyName(6, "cốt-dừa-cà-phê_lớn10.png");
+            this.il10.Images.SetKeyName(7, "10.jpg");
+            this.il10.Images.SetKeyName(8, "Cappuccino_at_Sightglass_Coffee10.jpg");
+            // 
+            // il11
+            // 
+            this.il11.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("il11.ImageStream")));
+            this.il11.TransparentColor = System.Drawing.Color.Transparent;
+            this.il11.Images.SetKeyName(0, "pngtree-tasty-avocado-smoothie-in-glass-file-png-png-image_11.png");
+            this.il11.Images.SetKeyName(1, "cach-lam-sinh-to-mang-cau-thom-ngon11.jpg");
+            this.il11.Images.SetKeyName(2, "cach-lam-sinh-to-dau-dodoto.vn11_.jpg");
+            this.il11.Images.SetKeyName(3, "me-da-thu-cho-be-an-mon-sinh-to-xoai-tao-chua11.png");
+            this.il11.Images.SetKeyName(4, "sinh-to-chanh-leo-11.jpg");
+            this.il11.Images.SetKeyName(5, "cach-lam-sinh-to-thanh-long--11.jpg");
+            this.il11.Images.SetKeyName(6, "cong-thuc-lam-sinh-to-kiwi-11.jpg");
+            // 
+            // il12
+            // 
+            this.il12.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("il12.ImageStream")));
+            this.il12.TransparentColor = System.Drawing.Color.Transparent;
+            this.il12.Images.SetKeyName(0, "sua-chua-thach-la-nep12.jpg");
+            this.il12.Images.SetKeyName(1, "cach-lam-sinh-to-sua-chua-ca-phe12.jpg");
+            this.il12.Images.SetKeyName(2, "sua-chua-trai-cay12.png");
+            this.il12.Images.SetKeyName(3, "pngtree-blueberry-smoothie-or-milkshake-with-fresh-berries-png-image_12.png");
+            this.il12.Images.SetKeyName(4, "12cach-lam-sua-chua-danh-da-thumb.jpg");
+            // 
+            // il13
+            // 
+            this.il13.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("il13.ImageStream")));
+            this.il13.TransparentColor = System.Drawing.Color.Transparent;
+            this.il13.Images.SetKeyName(0, "Tac-dung-cua-hat-huong-duong-doi-voi-suc-khoe-va-cach-an-hat-huong-duong13.jpg");
+            this.il13.Images.SetKeyName(1, "hoc-cach-lam-bo-kho-chay-toi-thom-ngon-nuc-mui-13.jpg");
+            this.il13.Images.SetKeyName(2, "mon-kho-ga-la-chanh13.jpg");
+            this.il13.Images.SetKeyName(3, "cach-lam-khoai-tay-lac-pho-mai-thom-ngon-de-lam-13.jpg");
+            // 
+            // imageList1
+            // 
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // txtClient
+            // 
+            this.txtClient.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtClient.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClient.Location = new System.Drawing.Point(17, 48);
+            this.txtClient.Name = "txtClient";
+            this.txtClient.Size = new System.Drawing.Size(229, 38);
+            this.txtClient.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
+            this.label6.Location = new System.Drawing.Point(3, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(461, 163);
+            this.label6.TabIndex = 11;
+            // 
             // fManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -531,10 +720,10 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(1266, 690);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.flpTables);
             this.Controls.Add(this.Panel5);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -559,6 +748,10 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDiscount)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,12 +792,28 @@
         private System.Windows.Forms.Button btnSwitch;
         private System.Windows.Forms.Button btnTableregister;
         private System.Windows.Forms.Button btnMerge;
-        private System.Windows.Forms.ComboBox cbDrinkName;
         private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.ComboBox cbTables;
         private System.Windows.Forms.ToolStripMenuItem toolStripPrint;
         private System.Windows.Forms.ToolStripTextBox tooltxtInfor;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem khoHàngToolStripMenuItem;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.FlowLayoutPanel flpDrink;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ImageList il4;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ImageList il5;
+        private System.Windows.Forms.ImageList il7;
+        private System.Windows.Forms.ImageList il10;
+        private System.Windows.Forms.ImageList il11;
+        private System.Windows.Forms.ImageList il12;
+        private System.Windows.Forms.ImageList il13;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TextBox txtClient;
+        private System.Windows.Forms.Label label6;
     }
 }

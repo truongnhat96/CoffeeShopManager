@@ -218,7 +218,6 @@
             // 
             // dtgvProducts
             // 
-            this.dtgvProducts.AllowUserToAddRows = false;
             this.dtgvProducts.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -451,7 +450,7 @@
             // 
             this.txtTotal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtTotal.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.Color.Crimson;
             this.txtTotal.Location = new System.Drawing.Point(1129, 607);

@@ -20,6 +20,7 @@ namespace GUI
     {
         Table table;
         string totalprice;
+        string clientName;
         //Delegate lấy dữ liệu từ form chính về form con
         Func<int, string> priceFormatter;
         public Func<int, string> PriceFormatter { get => priceFormatter; set => priceFormatter = value; }
@@ -31,19 +32,19 @@ namespace GUI
                bankNumber: "45010006617116", // Số tài khoản
                amount: totalprice, // Số tiền
                purpose: $"Thanh toán QR cho {table.TableName}"  // Nội dung chuyển tiền,
-
              );
             string content = qrPay.Build();
 
             return QRCodeHelper.TaoVietQRCodeImage(content);
         }
 
-        public fBillReport(Table table, string totalprice)
+        public fBillReport(Table table, string totalprice, string clientName)
         {
             InitializeComponent();
             this.table = table;
             this.totalprice = totalprice;
             this.totalprice = totalprice.Replace(".", ",");
+            this.clientName = clientName;
         }
 
         private byte[] ConvertImageToByteArray(Image img)
@@ -72,9 +73,10 @@ namespace GUI
             ReportParameter para4 = new ReportParameter("TimeIn", BillDetailDAL.Instance.GetBillDate(table.ID).ToLongTimeString());
             ReportParameter para5 = new ReportParameter("DateIn", BillDetailDAL.Instance.GetBillDate(table.ID).ToLongDateString());
             ReportParameter para6 = new ReportParameter("ImageQRcode", Convert.ToBase64String(imageByte));
+            ReportParameter para7 = new ReportParameter("Client", clientName);
             #endregion
 
-            this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] {para1, para2, para3, para4, para5, para6 });
+            this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] {para1, para2, para3, para4, para5, para6, para7 });
 
             this.reportViewer1.LocalReport.Refresh();
             this.reportViewer1.RefreshReport();

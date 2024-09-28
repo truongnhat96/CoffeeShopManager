@@ -79,7 +79,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(299, 30);
             this.txtUsername.TabIndex = 1;
-            this.txtUsername.Text = "ADMIN1000";
             // 
             // panel2
             // 
@@ -124,7 +123,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(299, 30);
             this.txtPassword.TabIndex = 1;
-            this.txtPassword.Text = "ADMIN123";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // notiLoginsucess
@@ -159,7 +157,7 @@
             this.btnLogin.Size = new System.Drawing.Size(306, 54);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // picLoad

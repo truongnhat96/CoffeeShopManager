@@ -390,7 +390,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>ExtractBill</DataSetName>
-            <Top>4.71664cm</Top>
+            <Top>5.89676cm</Top>
             <Left>3.87961cm</Left>
             <Height>1.5175cm</Height>
             <Width>12.3368cm</Width>
@@ -504,7 +504,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>18.25949cm</Top>
+            <Top>19.66447cm</Top>
             <Left>1.97461cm</Left>
             <Height>2.16633cm</Height>
             <Width>16.43934cm</Width>
@@ -544,7 +544,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>7.92198cm</Top>
+            <Top>9.1021cm</Top>
             <Left>3.87961cm</Left>
             <Height>0.89633cm</Height>
             <Width>17.28367cm</Width>
@@ -579,7 +579,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Mã hóa đơn:</Value>
+                                  <Value>Số hóa đơn:</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -637,7 +637,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>ExtractBill</DataSetName>
-            <Top>9.33689cm</Top>
+            <Top>10.51701cm</Top>
             <Left>3.87961cm</Left>
             <Height>0.80667cm</Height>
             <Width>16.01367cm</Width>
@@ -671,7 +671,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>6.65551cm</Top>
+            <Top>7.83563cm</Top>
             <Left>3.87961cm</Left>
             <Height>0.74789cm</Height>
             <Width>17.28367cm</Width>
@@ -767,10 +767,10 @@
             <Value>=Parameters!ImageQRcode.Value</Value>
             <MIMEType>image/png</MIMEType>
             <Sizing>FitProportional</Sizing>
-            <Top>12.49398cm</Top>
-            <Left>6.6167cm</Left>
+            <Top>13.89896cm</Top>
+            <Left>6.1087cm</Left>
             <Height>4.3815cm</Height>
-            <Width>6.985cm</Width>
+            <Width>6.477cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -807,8 +807,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>17.2926cm</Top>
-            <Left>5.68028cm</Left>
+            <Top>18.69758cm</Top>
+            <Left>5.3067cm</Left>
             <Height>0.7905cm</Height>
             <Width>7.92142cm</Width>
             <ZIndex>10</ZIndex>
@@ -826,8 +826,8 @@
             <Source>Embedded</Source>
             <Value>logobidv20220426071253</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>11.49117cm</Top>
-            <Left>6.6167cm</Left>
+            <Top>12.89615cm</Top>
+            <Left>6.1087cm</Left>
             <Height>0.96753cm</Height>
             <Width>1.48164cm</Width>
             <ZIndex>11</ZIndex>
@@ -854,8 +854,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
-            <Top>10.55892cm</Top>
-            <Left>6.1087cm</Left>
+            <Top>11.9639cm</Top>
+            <Left>5.70653cm</Left>
             <Height>0.79114cm</Height>
             <Width>6.27042cm</Width>
             <ZIndex>12</ZIndex>
@@ -873,8 +873,8 @@
             <Source>Embedded</Source>
             <Value>ID566d62fd25cf0867e0033fb1b9b47927</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>11.49117cm</Top>
-            <Left>9.13553cm</Left>
+            <Top>12.89615cm</Top>
+            <Left>8.3312cm</Left>
             <Height>0.93225cm</Height>
             <Width>2.73559cm</Width>
             <ZIndex>13</ZIndex>
@@ -884,8 +884,46 @@
               </Border>
             </Style>
           </Image>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Khách hàng:   </Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!Client.Value</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>4.73287cm</Top>
+            <Left>4.71403cm</Left>
+            <Height>0.7905cm</Height>
+            <Width>11.50238cm</Width>
+            <ZIndex>14</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>8.14999in</Height>
+        <Height>8.67499in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -936,6 +974,10 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="Client">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -971,6 +1013,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>ImageQRcode</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>Client</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

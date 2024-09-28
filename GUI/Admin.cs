@@ -44,7 +44,6 @@ namespace App
         public Action<int> DrinkListRefresh { get => drinkListRefresh; set => drinkListRefresh = value; }
         public Action ReLoadTable { get => reLoadTable; set => reLoadTable = value; }
         public Action ReLoadCategory { get => reLoadCategory; set => reLoadCategory = value; }
-
         #endregion
 
 

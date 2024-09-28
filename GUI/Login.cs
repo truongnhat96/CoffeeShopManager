@@ -21,7 +21,6 @@ namespace App
         public fLogin()
         {
             InitializeComponent();
-
         }
 
         #region Method
@@ -48,7 +47,7 @@ namespace App
 
                 await Task.Run(() =>
                 {
-                    return Task.Delay(4000);
+                    return Task.Delay(3500);
                 });
 
                 this.Hide();

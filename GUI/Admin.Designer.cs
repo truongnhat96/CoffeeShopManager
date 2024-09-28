@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             this.tcAdministrator = new System.Windows.Forms.TabControl();
             this.tpRevenue = new System.Windows.Forms.TabPage();
+            this.lblNotfound = new System.Windows.Forms.Label();
+            this.picNotfound = new System.Windows.Forms.PictureBox();
+            this.lblNotifyBill = new System.Windows.Forms.Label();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.txtPage = new System.Windows.Forms.TextBox();
             this.flpPage = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
@@ -109,13 +114,9 @@
             this.btnDeleteacc = new System.Windows.Forms.Button();
             this.btnAddacc = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtPage = new System.Windows.Forms.TextBox();
-            this.lblNotifyBill = new System.Windows.Forms.Label();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.picNotfound = new System.Windows.Forms.PictureBox();
-            this.lblNotfound = new System.Windows.Forms.Label();
             this.tcAdministrator.SuspendLayout();
             this.tpRevenue.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picNotfound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.tpDrinks.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -131,7 +132,6 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picNotfound)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdministrator
@@ -170,6 +170,60 @@
             this.tpRevenue.Size = new System.Drawing.Size(1169, 605);
             this.tpRevenue.TabIndex = 0;
             this.tpRevenue.Text = "Doanh thu";
+            // 
+            // lblNotfound
+            // 
+            this.lblNotfound.AutoSize = true;
+            this.lblNotfound.BackColor = System.Drawing.Color.White;
+            this.lblNotfound.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotfound.Location = new System.Drawing.Point(434, 402);
+            this.lblNotfound.Name = "lblNotfound";
+            this.lblNotfound.Size = new System.Drawing.Size(298, 31);
+            this.lblNotfound.TabIndex = 14;
+            this.lblNotfound.Text = "Không Tìm Thấy Hóa Đơn!";
+            this.lblNotfound.Visible = false;
+            // 
+            // picNotfound
+            // 
+            this.picNotfound.Image = ((System.Drawing.Image)(resources.GetObject("picNotfound.Image")));
+            this.picNotfound.Location = new System.Drawing.Point(438, 116);
+            this.picNotfound.Name = "picNotfound";
+            this.picNotfound.Size = new System.Drawing.Size(313, 283);
+            this.picNotfound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picNotfound.TabIndex = 13;
+            this.picNotfound.TabStop = false;
+            this.picNotfound.Visible = false;
+            // 
+            // lblNotifyBill
+            // 
+            this.lblNotifyBill.BackColor = System.Drawing.Color.White;
+            this.lblNotifyBill.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotifyBill.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblNotifyBill.ImageIndex = 0;
+            this.lblNotifyBill.ImageList = this.imageList2;
+            this.lblNotifyBill.Location = new System.Drawing.Point(457, 157);
+            this.lblNotifyBill.Name = "lblNotifyBill";
+            this.lblNotifyBill.Size = new System.Drawing.Size(262, 242);
+            this.lblNotifyBill.TabIndex = 12;
+            this.lblNotifyBill.Text = "Nhấn [Tìm kiếm] để tìm hóa đơn theo ngày ";
+            this.lblNotifyBill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "bill.png");
+            this.imageList2.Images.SetKeyName(1, "Screenshot 2024-09-25 215308.png");
+            // 
+            // txtPage
+            // 
+            this.txtPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPage.Location = new System.Drawing.Point(1112, 441);
+            this.txtPage.Name = "txtPage";
+            this.txtPage.ReadOnly = true;
+            this.txtPage.Size = new System.Drawing.Size(57, 34);
+            this.txtPage.TabIndex = 11;
+            this.txtPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // flpPage
             // 
@@ -963,7 +1017,7 @@
             this.btnEditcategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnEditcategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditcategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditcategory.Location = new System.Drawing.Point(355, 16);
+            this.btnEditcategory.Location = new System.Drawing.Point(269, 16);
             this.btnEditcategory.Name = "btnEditcategory";
             this.btnEditcategory.Size = new System.Drawing.Size(128, 67);
             this.btnEditcategory.TabIndex = 9;
@@ -985,6 +1039,7 @@
             this.btnDeletecategory.TabIndex = 10;
             this.btnDeletecategory.Text = "Xóa";
             this.btnDeletecategory.UseVisualStyleBackColor = false;
+            this.btnDeletecategory.Visible = false;
             this.btnDeletecategory.Click += new System.EventHandler(this.btnDeletecategory_Click);
             // 
             // btnAddcategory
@@ -1234,60 +1289,6 @@
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             this.errorProvider1.RightToLeft = true;
             // 
-            // txtPage
-            // 
-            this.txtPage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPage.Location = new System.Drawing.Point(1112, 441);
-            this.txtPage.Name = "txtPage";
-            this.txtPage.ReadOnly = true;
-            this.txtPage.Size = new System.Drawing.Size(57, 34);
-            this.txtPage.TabIndex = 11;
-            this.txtPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblNotifyBill
-            // 
-            this.lblNotifyBill.BackColor = System.Drawing.Color.White;
-            this.lblNotifyBill.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotifyBill.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblNotifyBill.ImageIndex = 0;
-            this.lblNotifyBill.ImageList = this.imageList2;
-            this.lblNotifyBill.Location = new System.Drawing.Point(457, 157);
-            this.lblNotifyBill.Name = "lblNotifyBill";
-            this.lblNotifyBill.Size = new System.Drawing.Size(262, 242);
-            this.lblNotifyBill.TabIndex = 12;
-            this.lblNotifyBill.Text = "Nhấn [Tìm kiếm] để tìm hóa đơn theo ngày ";
-            this.lblNotifyBill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "bill.png");
-            this.imageList2.Images.SetKeyName(1, "Screenshot 2024-09-25 215308.png");
-            // 
-            // picNotfound
-            // 
-            this.picNotfound.Image = ((System.Drawing.Image)(resources.GetObject("picNotfound.Image")));
-            this.picNotfound.Location = new System.Drawing.Point(438, 116);
-            this.picNotfound.Name = "picNotfound";
-            this.picNotfound.Size = new System.Drawing.Size(313, 283);
-            this.picNotfound.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picNotfound.TabIndex = 13;
-            this.picNotfound.TabStop = false;
-            this.picNotfound.Visible = false;
-            // 
-            // lblNotfound
-            // 
-            this.lblNotfound.AutoSize = true;
-            this.lblNotfound.BackColor = System.Drawing.Color.White;
-            this.lblNotfound.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNotfound.Location = new System.Drawing.Point(434, 402);
-            this.lblNotfound.Name = "lblNotfound";
-            this.lblNotfound.Size = new System.Drawing.Size(298, 31);
-            this.lblNotfound.TabIndex = 14;
-            this.lblNotfound.Text = "Không Tìm Thấy Hóa Đơn!";
-            this.lblNotfound.Visible = false;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1302,6 +1303,7 @@
             this.tcAdministrator.ResumeLayout(false);
             this.tpRevenue.ResumeLayout(false);
             this.tpRevenue.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picNotfound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.tpDrinks.ResumeLayout(false);
             this.tpDrinks.PerformLayout();
@@ -1325,7 +1327,6 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picNotfound)).EndInit();
             this.ResumeLayout(false);
 
         }

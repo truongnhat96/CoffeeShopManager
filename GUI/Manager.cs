@@ -7,10 +7,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 
 namespace App
@@ -33,13 +35,16 @@ namespace App
         public fManager(Account acc)
         {
             InitializeComponent();
+            this.acc = acc;
             LoadTable();
             LoadCategory();
             LoadcbTables();
-            this.acc = acc;
             DecentralizationAndLoadName();
+            ImageLoading();
         }
-        
+
+      
+
 
 
         #region Method
@@ -61,12 +66,93 @@ namespace App
         }
 
 
+        void LoadImageDrinkButton(ImageList piclist)
+        {
+            int i = 0;
+            int count = piclist.Images.Count;
+            foreach (Button btn in flpDrink.Controls)
+            {
+                btn.ImageList = piclist;
+                btn.ImageIndex = i;
+                btn.Tag = i;
+                btn.ImageAlign = ContentAlignment.TopCenter;
+                if(i < count - 1)
+                i++;
+            }
+        }
+
         void DecentralizationAndLoadName()
         {
             AdminToolStripMenuItem.Enabled = acc.AccountType == "ADMIN" ? true : false;
             tooltxtInfor.Text = "Xin chào!  " + $"{acc.Displayname}";
         }
 
+
+        void ImageLoading()
+        {
+            if (File.Exists("Image.txt") && File.Exists("Index.txt"))
+            {
+                string[] imagePaths = File.ReadAllLines("Image.txt");
+                string[] index = File.ReadAllLines("Index.txt");
+                int i = 0;
+                foreach (string filePath in imagePaths)
+                {
+                    if (File.Exists(filePath))  // Kiểm tra xem file có tồn tại không
+                    {
+                        if(filePath.Contains("4"))
+                        {
+                            Image image = Image.FromFile(filePath);
+                            image = new Bitmap(image, new Size(140, 95));
+                            il4.Images.Add(image);
+                            il4.Images[int.Parse(index[i])] = image;
+                        }
+                        else if (filePath.Contains("5"))
+                        {
+                            Image image = Image.FromFile(filePath);
+                            image = new Bitmap(image, new Size(140, 95));
+                            il5.Images.Add(image);
+                            il5.Images[int.Parse(index[i])] = image;
+                        }
+                        else if (filePath.Contains("7"))
+                        {
+                            Image image = Image.FromFile(filePath);
+                            image = new Bitmap(image, new Size(140, 95));
+                            il7.Images.Add(image);
+                            il7.Images[int.Parse(index[i])] = image;
+                        }
+                        else if (filePath.Contains("10"))
+                        {
+                            Image image = Image.FromFile(filePath);
+                            image = new Bitmap(image, new Size(140, 95));
+                            il10.Images.Add(image);
+                            il10.Images[int.Parse(index[i])] = image;
+                        }
+                        else if (filePath.Contains("11"))
+                        {
+                            Image image = Image.FromFile(filePath);
+                            image = new Bitmap(image, new Size(140, 95));
+                            il11.Images.Add(image);
+                            il11.Images[int.Parse(index[i])] = image;
+                        }
+                        else if (filePath.Contains("12"))
+                        {
+                            Image image = Image.FromFile(filePath);
+                            image = new Bitmap(image, new Size(140, 95));
+                            il12.Images.Add(image);
+                            il12.Images[int.Parse(index[i])] = image;
+                        }
+                        else if (filePath.Contains("13"))
+                        {
+                            Image image = Image.FromFile(filePath);
+                            image = new Bitmap(image, new Size(140, 95));
+                            il13.Images.Add(image);
+                            il13.Images[int.Parse(index[i])] = image;
+                        }
+                        i++;
+                    }
+                }
+            }
+        }
 
         void LoadcbTables()
         {
@@ -86,7 +172,7 @@ namespace App
                 {
                     Text = $"{table.TableName}\nTrạng thái: {table.Status}",
                     Size = new Size(TableDAL.TableWidth, TableDAL.TableHeigh),
-                    Font = new Font("Microsoft Sans Serif", 10 ,FontStyle.Regular)
+                    Font = new Font("Microsoft Sans Serif", 10 ,FontStyle.Regular),
                 };
                 btn.Cursor = Cursors.Hand;
                 btn.Tag = table;
@@ -117,14 +203,73 @@ namespace App
 
 
         /// <summary>
-        /// Tải danh sách đồ uống dựa theo mã danh mục lên combobox
+        /// Tải danh sách đồ uống dựa theo mã danh mục 
         /// </summary>
         /// <param name="id"></param>
         void LoadDrink(int id)
         {
-            cbDrinkName.DataSource = DrinkDAL.Instance.LoadDrink(id);
-            cbDrinkName.DisplayMember = "Name";
+            flpDrink.Controls.Clear();
+
+            var Drinks = DrinkDAL.Instance.LoadDrink(id);
+            foreach (Drink drink in Drinks)
+            {
+                Button button = new Button()
+                {
+                    Text = drink.Name + $"  | Giá:  {drink.Price/1000}K",
+                    Size = new Size(145, 167),
+                    Font = new Font("Segoe UI", 12.1f, FontStyle.Regular),
+                    TextAlign = ContentAlignment.BottomCenter,
+                    BackColor = Color.WhiteSmoke,
+                    Cursor = Cursors.Hand
+                };
+                ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+                var item = new ToolStripButton() { Text = "Thêm hình ảnh...", Width = 100, Height = 26};
+                item.Image = new Bitmap(GUI.Properties.Resources.picture_frame, new Size(26, 26));
+                item.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+                item.ImageAlign = ContentAlignment.MiddleLeft;
+                item.Click += Item_Click;
+                item.Tag = button;
+
+                if (acc.AccountType == "ADMIN")
+                {
+                    button.MouseDown += Button_MouseDown;
+                    contextMenuStrip.Items.Add(item);
+                }
+
+                contextMenuStrip.ShowImageMargin = true;
+                contextMenuStrip.Tag = drink;
+                button.ContextMenuStrip = contextMenuStrip;
+
+                button.Click += Button_Click;
+                flpDrink.Controls.Add(button);
+            }
+            switch (id)
+            {
+                case 4:
+                    LoadImageDrinkButton(il4);
+                    break;
+                case 5:
+                    LoadImageDrinkButton(il5);
+                    break;
+                case 7:
+                    LoadImageDrinkButton(il7);
+                    break;
+                case 10:
+                    LoadImageDrinkButton(il10);
+                    break;
+                case 11:
+                    LoadImageDrinkButton(il11);
+                    break;
+                case 12:
+                    LoadImageDrinkButton(il12);
+                    break;
+                case 13:
+                    LoadImageDrinkButton(il13);
+                    break;
+            }
+            ImageLoading();
         }
+
 
 
 
@@ -200,6 +345,39 @@ namespace App
         }
 
 
+        private void Button_MouseDown(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+            if (e.Button == MouseButtons.Right)
+            {
+                // Hiển thị ContextMenuStrip tại vị trí chuột
+                btn.ContextMenuStrip.Show(btn, e.Location);
+            }
+        }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            btnAddDrink.Tag = btn.ContextMenuStrip.Tag as Drink;
+        }
+
+        private void Item_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
+            openFileDialog1.Title = "Chọn hình ảnh";
+            ToolStripButton tbtn = sender as ToolStripButton;
+            Button button = tbtn.Tag as Button;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string path = openFileDialog1.FileName;
+                Image img = Image.FromFile(path);
+                button.Image = new Bitmap(img, new Size(140, 95));
+                File.AppendAllLines("Image.txt", new string[] { path }); 
+                File.AppendAllLines("Index.txt", new string[] { button.Tag.ToString() });
+            }
+        }
+
+
         /// <summary>
         /// Event thực hiện chức năng cập nhật thông tin người dùng khi có thay đổi
         /// </summary>
@@ -253,13 +431,20 @@ namespace App
                 MessageBox.Show("Bạn chưa chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             if(BillDAL.Instance.GetBillID(table.ID) == -1)
             {
                 MessageBox.Show("Không tìm thấy hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 return;
             }
 
-            fBillReport report = new fBillReport(table, txtPriceSum.Text);
+            if(txtClient.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            fBillReport report = new fBillReport(table, txtPriceSum.Text, txtClient.Text);
             report.PriceFormatter = GetTotalBill;
             report.ShowDialog();
         }
@@ -276,7 +461,6 @@ namespace App
 
         private void numDiscount_ValueChanged(object sender, EventArgs e)
         {
-
             double Pricesum = CurrentPrice();
             Pricesum -= Pricesum * ((double)numDiscount.Value/100);
             CultureInfo cul = new CultureInfo("vi-VN");
@@ -297,6 +481,7 @@ namespace App
         //Quy ước: đối với mỗi bàn chỉ được tồn tại nhiều nhất 1 hóa đơn chưa thanh toán
         private void btnAddDrink_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
             if (numCount.Value == 0)
             {
                 MessageBox.Show("Vui lòng nhập số lượng đồ cần thêm/bớt!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -311,7 +496,7 @@ namespace App
 
             //nếu bàn đó không có bill nào chưa thanh toán sẽ trả về id bill = -1
             int idBill = BillDAL.Instance.GetBillID(table.ID);
-            int idDrink = (cbDrinkName.SelectedValue as Drink).Id;
+            int idDrink = (btn.Tag as Drink).Id;
             if (idBill == -1)
             {
                 BillDAL.Instance.AddBill(table.ID, (int)numCount.Value);
