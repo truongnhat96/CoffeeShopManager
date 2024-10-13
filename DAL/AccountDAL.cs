@@ -51,24 +51,24 @@ namespace DAL
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("SELECT USERNAME AS [Tên người dùng], DisplayName as [Tên hiển thị], AccountType as [Loại tài khoản] FROM ACCOUNT");
+                return DataProvider.Instance.ExecuteQuery("SELECT USERNAME AS [Tên Người Dùng], DisplayName as [Tên Hiển Thị], AccountType as [Loại Tài Khoản], DateOfBirth as [Ngày Sinh], PhoneNumber as [Số Điện Thoại], WorkBegin as [Ngày Bắt Đầu Làm] FROM ACCOUNT");
             }
-            catch {  return null; }
+            catch { return null; }
         }
 
-        public int AddAccount(string username, string displayname, string accounttype)
+        public int AddAccount(string username, string displayname, string accounttype, DateTime birth, string phone)
         {
-            return DataProvider.Instance.ExecuteNonQuery("EXECUTE SP_AddAccount @USERNAME, @DISPLAYNAME, @ACCOUNTTYPE", new object[] {username, displayname, accounttype});
+            return DataProvider.Instance.ExecuteNonQuery("EXECUTE SP_AddAccount @USERNAME, @DISPLAYNAME, @ACCOUNTTYPE, @BIRTH, @PHONE", new object[] { username, displayname, accounttype, birth, phone });
         }
 
         public int DeleteAccount(string username, string displayname)
         {
-            return DataProvider.Instance.ExecuteNonQuery("EXEC SP_DeleteAccount @USERNAME, @DISPLAYNAME", new object[] {username, displayname });
+            return DataProvider.Instance.ExecuteNonQuery("EXEC SP_DeleteAccount @USERNAME, @DISPLAYNAME", new object[] { username, displayname });
         }
 
-        public int EditAccount(string  username, string displayname, string accounttype)
+        public int EditAccount(string username, string displayname, string accounttype, DateTime birth, string phone, DateTime begin)
         {
-            return DataProvider.Instance.ExecuteNonQuery("UPDATE ACCOUNT SET Displayname = @DISPLAYNAME, AccountType = @ACCOUNTTYPE WHERE Username = @USERNAME1", new object[] { displayname, accounttype, username });
+            return DataProvider.Instance.ExecuteNonQuery("UPDATE ACCOUNT SET Displayname = @DISPLAYNAME, AccountType = @ACCOUNTTYPE, DateOfBirth = @DATE, PhoneNumber = @PHONE, WorkBegin = @BEGIN WHERE Username = @USERNAME", new object[] { displayname, accounttype, birth, phone, begin, username });
         }
 
         public int ResetPassword(string username, string accounttype)
@@ -76,6 +76,13 @@ namespace DAL
             return DataProvider.Instance.ExecuteNonQuery("UPDATE ACCOUNT SET Password = @ACCOUNTTYPE + '123' WHERE Username = @USERNAME", new object[] { accounttype, username });
         }
 
-
+        public DataTable SearchingAccount(string name)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery($@"SELECT USERNAME AS [Tên Người Dùng], DisplayName as [Tên Hiển Thị], AccountType as [Loại Tài Khoản], DateOfBirth as [Ngày Sinh], PhoneNumber as [Số Điện Thoại], WorkBegin as [Ngày Bắt Đầu Làm] FROM ACCOUNT WHERE DisplayName COLLATE SQL_Latin1_General_CP1_CI_AI LIKE N'%{name}%'");
+            }
+            catch { return null; }
+        }
     }
 }

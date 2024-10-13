@@ -71,37 +71,37 @@
             // txtAccountType
             // 
             this.txtAccountType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAccountType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccountType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAccountType.Location = new System.Drawing.Point(243, 43);
             this.txtAccountType.Name = "txtAccountType";
             this.txtAccountType.ReadOnly = true;
-            this.txtAccountType.Size = new System.Drawing.Size(316, 30);
+            this.txtAccountType.Size = new System.Drawing.Size(316, 34);
             this.txtAccountType.TabIndex = 1;
             // 
             // txtDisplayname
             // 
             this.txtDisplayname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDisplayname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDisplayname.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDisplayname.Location = new System.Drawing.Point(243, 198);
             this.txtDisplayname.Name = "txtDisplayname";
-            this.txtDisplayname.Size = new System.Drawing.Size(316, 30);
+            this.txtDisplayname.Size = new System.Drawing.Size(316, 34);
             this.txtDisplayname.TabIndex = 3;
             // 
             // txtUsername
             // 
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(243, 121);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.ReadOnly = true;
-            this.txtUsername.Size = new System.Drawing.Size(316, 30);
+            this.txtUsername.Size = new System.Drawing.Size(316, 34);
             this.txtUsername.TabIndex = 2;
             // 
             // btnUpdateInfor
             // 
             this.btnUpdateInfor.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnUpdateInfor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateInfor.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateInfor.Location = new System.Drawing.Point(385, 272);
             this.btnUpdateInfor.Name = "btnUpdateInfor";
             this.btnUpdateInfor.Size = new System.Drawing.Size(174, 38);

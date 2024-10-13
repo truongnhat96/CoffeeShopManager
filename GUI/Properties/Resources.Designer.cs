@@ -63,6 +63,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icons8_Windows_8_Security_Password_2_1 {
+            get {
+                object obj = ResourceManager.GetObject("Icons8-Windows-8-Security-Password-2-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap person {
             get {
                 object obj = ResourceManager.GetObject("person", resourceCulture);
@@ -76,6 +86,16 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap picture_frame {
             get {
                 object obj = ResourceManager.GetObject("picture_frame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_icon_150670 {
+            get {
+                object obj = ResourceManager.GetObject("user_icon_150670", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

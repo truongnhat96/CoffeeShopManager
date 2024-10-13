@@ -74,28 +74,28 @@
             // txtOldpass
             // 
             this.txtOldpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOldpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOldpass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOldpass.Location = new System.Drawing.Point(314, 40);
             this.txtOldpass.Name = "txtOldpass";
-            this.txtOldpass.Size = new System.Drawing.Size(309, 30);
+            this.txtOldpass.Size = new System.Drawing.Size(309, 34);
             this.txtOldpass.TabIndex = 1;
             // 
             // txtNewpass
             // 
             this.txtNewpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNewpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewpass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNewpass.Location = new System.Drawing.Point(314, 113);
             this.txtNewpass.Name = "txtNewpass";
-            this.txtNewpass.Size = new System.Drawing.Size(309, 30);
+            this.txtNewpass.Size = new System.Drawing.Size(309, 34);
             this.txtNewpass.TabIndex = 2;
             // 
             // txtConfirmpass
             // 
             this.txtConfirmpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtConfirmpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmpass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmpass.Location = new System.Drawing.Point(314, 183);
             this.txtConfirmpass.Name = "txtConfirmpass";
-            this.txtConfirmpass.Size = new System.Drawing.Size(309, 30);
+            this.txtConfirmpass.Size = new System.Drawing.Size(309, 34);
             this.txtConfirmpass.TabIndex = 3;
             // 
             // btnUpdate

@@ -174,10 +174,12 @@ namespace App
 
         void AddBindingAccount()
         {
-            txtDisplayname.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Tên hiển thị", true, DataSourceUpdateMode.Never));
-            txtNameacc.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Tên người dùng", true, DataSourceUpdateMode.Never));
-            cbAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Loại tài khoản", true, DataSourceUpdateMode.Never));
-
+            txtDisplayname.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Tên Hiển Thị", true, DataSourceUpdateMode.Never));
+            txtNameacc.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Tên Người Dùng", true, DataSourceUpdateMode.Never));
+            cbAccountType.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Loại Tài Khoản", true, DataSourceUpdateMode.Never));       
+            dtpDate.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Ngày Sinh", true, DataSourceUpdateMode.Never));
+            txtPhone.DataBindings.Add(new Binding("Text", dtgvAccount.DataSource, "Số Điện Thoại", true, DataSourceUpdateMode.Never));
+            dtpWorkbegin.DataBindings.Add(new Binding("Value", dtgvAccount.DataSource, "Ngày Bắt Đầu Làm", true, DataSourceUpdateMode.Never));
         }
 
         #endregion
@@ -508,7 +510,11 @@ namespace App
             string username = txtNameacc.Text;
             string displayname = txtDisplayname.Text;
             string accounttype = cbAccountType.Text;
-            if(AccountDAL.Instance.AddAccount(username, displayname, accounttype) > 0)
+            DateTime date = dtpDate.Value;
+            string phone = txtPhone.Text;
+
+
+            if (AccountDAL.Instance.AddAccount(username, displayname, accounttype, date, phone) > 0)
             {
                 MessageBox.Show("Thêm tài khoản thành công", "Quản lý", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadAccount();
@@ -551,7 +557,10 @@ namespace App
             string username = txtNameacc.Text;
             string displayname = txtDisplayname.Text;
             string accounttype = cbAccountType.Text;
-            if (AccountDAL.Instance.EditAccount(username, displayname, accounttype) > 0)
+            DateTime birth = dtpDate.Value;
+            string phone = txtPhone.Text;
+            DateTime begin = dtpWorkbegin.Value;
+            if (AccountDAL.Instance.EditAccount(username, displayname, accounttype, birth, phone, begin) > 0)
             {
                 MessageBox.Show("Cập nhật tài khoản thành công\nVui lòng đăng nhập lại để hệ thống tải dữ liệu", "Quản lý", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadAccount();
@@ -562,6 +571,19 @@ namespace App
             }
         }
 
+
+        private void btnSearchStaff_Click(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            string keyword = txtSearchStaff.Text;
+            if (keyword.Contains(';') || keyword.Contains("'") || keyword.Contains("--"))
+            {
+                errorProvider1.SetError(txtSearchStaff, "Từ khóa không hợp lệ");
+                return;
+            }
+
+            AccountSource.DataSource = AccountDAL.Instance.SearchingAccount(keyword);
+        }
 
         private void btnResetaccount_Click(object sender, EventArgs e)
         {
@@ -671,10 +693,10 @@ namespace App
 
 
 
-        #endregion
 
         #endregion
 
- 
+        #endregion
+
     }
 }

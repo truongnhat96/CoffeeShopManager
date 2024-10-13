@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
 
 
 namespace App
@@ -32,6 +31,8 @@ namespace App
         bool moving;
         int x, y;
 
+        bool checkExport;
+
         public fManager(Account acc)
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace App
             LoadcbTables();
             DecentralizationAndLoadName();
             ImageLoading();
+            checkExport = false;
         }
 
       
@@ -160,7 +162,7 @@ namespace App
             cbTables.DataSource = table;
             cbTables.DisplayMember = "TableName";
         }
-
+        
 
         void LoadTable()
         {
@@ -172,7 +174,7 @@ namespace App
                 {
                     Text = $"{table.TableName}\nTrạng thái: {table.Status}",
                     Size = new Size(TableDAL.TableWidth, TableDAL.TableHeigh),
-                    Font = new Font("Microsoft Sans Serif", 10 ,FontStyle.Regular),
+                    Font = new Font("Microsoft Yahei UI", 10 ,FontStyle.Regular),
                 };
                 btn.Cursor = Cursors.Hand;
                 btn.Tag = table;
@@ -440,13 +442,14 @@ namespace App
 
             if(txtClient.Text == "")
             {
-                MessageBox.Show("Vui lòng nhập tên khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng nhập tên khách hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             fBillReport report = new fBillReport(table, txtPriceSum.Text, txtClient.Text);
             report.PriceFormatter = GetTotalBill;
             report.ShowDialog();
+            checkExport = true;
         }
 
 
@@ -496,18 +499,23 @@ namespace App
 
             //nếu bàn đó không có bill nào chưa thanh toán sẽ trả về id bill = -1
             int idBill = BillDAL.Instance.GetBillID(table.ID);
-            int idDrink = (btn.Tag as Drink).Id;
+            Drink drink = btn.Tag as Drink;
+            if (drink == null)
+            {
+                MessageBox.Show("Vui lòng chọn đồ uống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (idBill == -1)
             {
                 BillDAL.Instance.AddBill(table.ID, (int)numCount.Value);
-                BillInforDAL.Instance.AddOrUpdateBillInfor(BillDAL.Instance.CreateNewIDBill(), idDrink, (int)numCount.Value);
+                BillInforDAL.Instance.AddOrUpdateBillInfor(BillDAL.Instance.CreateNewIDBill(), drink.Id, (int)numCount.Value);
 
                 if (numCount.Value > 0)
                     TableDAL.Instance.UpdateStatusTable(table.ID, "Có khách");
             }
             else
             {
-                BillInforDAL.Instance.AddOrUpdateBillInfor(idBill, idDrink, (int)numCount.Value);
+                BillInforDAL.Instance.AddOrUpdateBillInfor(idBill, drink.Id, (int)numCount.Value);
 
                 int Cur_idBill = BillDAL.Instance.GetBillID(table.ID);
 
@@ -529,22 +537,32 @@ namespace App
                 MessageBox.Show("Bạn chưa chọn bàn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            int idbill = BillDAL.Instance.GetBillID(table.ID);
-            if (idbill != -1)
+            if (checkExport)
             {
-                DialogResult r = MessageBox.Show($"Xác nhận thanh toán cho {table.TableName}", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (r == DialogResult.OK)
+                int idbill = BillDAL.Instance.GetBillID(table.ID);
+                if (idbill != -1)
                 {
-                    MessageBox.Show("Thanh toán thành công!\nCảm ơn bạn đã sử dụng dịch vụ (≧∇≦)ﾉ", "Thank You", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult r = MessageBox.Show($"Xác nhận thanh toán cho {table.TableName}", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (r == DialogResult.OK)
+                    {
+                        MessageBox.Show("Thanh toán thành công!\nCảm ơn bạn đã sử dụng dịch vụ (≧∇≦)ﾉ", "Thank You", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    string tmp = txtPriceSum.Text.Replace("₫", "");
-                    tmp = tmp.Replace(".", "");
+                        checkExport = false;
 
-                    BillDAL.Instance.UpdateBill(idbill, table.ID, (int)numDiscount.Value, double.Parse(tmp));
-                    LoadBill(table.ID);
-                    TableDAL.Instance.UpdateStatusTable(table.ID, "Trống");
-                    LoadTable();
+                        string tmp = txtPriceSum.Text.Replace("₫", "");
+                        tmp = tmp.Replace(".", "");
+
+                        BillDAL.Instance.UpdateBill(idbill, table.ID, (int)numDiscount.Value, double.Parse(tmp));
+                        LoadBill(table.ID);
+                        TableDAL.Instance.UpdateStatusTable(table.ID, "Trống");
+                        LoadTable();
+
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng in hóa đơn trước khi thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

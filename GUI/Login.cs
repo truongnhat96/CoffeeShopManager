@@ -21,6 +21,7 @@ namespace App
         public fLogin()
         {
             InitializeComponent();
+            InitializePlaceholders();
         }
 
         #region Method
@@ -31,8 +32,70 @@ namespace App
             txtPassword.ResetText();
         }
 
-        #endregion
+        void InitializePlaceholders()
+        {
+            txtUsername.ForeColor = Color.Gray;
+            txtUsername.Text = "Username";
+            txtPassword.ForeColor = Color.Gray;
+            txtPassword.UseSystemPasswordChar = false;
+            txtPassword.Text = "Password";
 
+            txtUsername.Enter += RemovePlaceholderText;
+            txtUsername.Leave += SetPlaceholderText;
+            txtUsername.TextChanged += RemovePlaceholderTextOnTextChanged;
+
+            txtPassword.Enter += RemovePlaceholderText;
+            txtPassword.Leave += SetPlaceholderText;
+            txtPassword.TextChanged += RemovePlaceholderTextOnTextChanged;
+
+        }
+
+        void RemovePlaceholderText(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "Username" || textBox.Text == "Password")
+            {
+                textBox.Text = "";
+                textBox.ForeColor = Color.Black;
+                if (textBox == txtPassword)
+                {
+                    textBox.UseSystemPasswordChar = true;
+                }
+            }
+        }
+
+        void SetPlaceholderText(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                if (textBox == txtUsername)
+                {
+                    textBox.Text = "Username";
+                }
+                else if (textBox == txtPassword)
+                {
+                    textBox.Text = "Password";
+                    textBox.UseSystemPasswordChar = false;
+                }
+                textBox.ForeColor = Color.Gray;
+            }
+        }
+
+        void RemovePlaceholderTextOnTextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text != "Username" && textBox.Text != "Password")
+            {
+                textBox.ForeColor = Color.Black;
+                if (textBox == txtPassword)
+                {
+                    textBox.UseSystemPasswordChar = true;
+                }
+            }
+        }
+
+        #endregion
 
         #region Event
 
@@ -66,9 +129,18 @@ namespace App
 
         private void chkViewPass_CheckedChanged(object sender, EventArgs e)
         {
-            if(chkViewPass.Checked) txtPassword.UseSystemPasswordChar = false;
+            if(txtPassword.Text == "Password" || txtPassword.Text == "") return;
+            if (chkViewPass.Checked) txtPassword.UseSystemPasswordChar = false;
             else txtPassword.UseSystemPasswordChar = true;
         }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+            InitializePlaceholders();
+        }
+
         #endregion
+
+
     }
 }

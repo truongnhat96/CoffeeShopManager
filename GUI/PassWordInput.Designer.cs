@@ -47,20 +47,21 @@
             // 
             // txtPass
             // 
-            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Location = new System.Drawing.Point(18, 88);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(328, 34);
+            this.txtPass.Size = new System.Drawing.Size(328, 38);
             this.txtPass.TabIndex = 1;
             this.txtPass.UseSystemPasswordChar = true;
             // 
             // chkSeenpass
             // 
             this.chkSeenpass.AutoSize = true;
-            this.chkSeenpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSeenpass.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkSeenpass.Location = new System.Drawing.Point(352, 98);
             this.chkSeenpass.Name = "chkSeenpass";
-            this.chkSeenpass.Size = new System.Drawing.Size(147, 26);
+            this.chkSeenpass.Size = new System.Drawing.Size(149, 29);
             this.chkSeenpass.TabIndex = 2;
             this.chkSeenpass.Text = "Hiện mật khẩu";
             this.chkSeenpass.UseVisualStyleBackColor = true;
@@ -69,7 +70,7 @@
             // btnConfirm
             // 
             this.btnConfirm.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Location = new System.Drawing.Point(108, 143);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(265, 46);
